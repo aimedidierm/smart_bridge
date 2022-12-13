@@ -1,4 +1,15 @@
-//https://www.youtube.com/watch?v=l2MC0qtPmBk
+/* TBRR Railroad - Thunder Hole Mine Tipple loading Car Weighing System
+ *  
+ *  I2C LCD 20x4 Display for Sign on TBRR
+  Took library and samples coding from:
+  https://www.youtube.com/watch?v=xVC0X_PE_XE&list=LLUtoezERLgkGYxIu25yF9TQ&index=8
+  Library Source:
+  https://bitbucket.org/fmalpartida/new-liquidcrystal/wiki/Home#!downloading-and-installation
+  I2C Device Scanner:  I2C_Scanner.ino
+  http://playground.arduino.cc/Main/I2cScanner
+  Added Load Beams to measure car weight after Tipple
+  DW Bolt 1-10-2018
+*/
 #include <elapsedMillis.h>
 elapsedMillis timeElapsed; //declare global if you don't want it reset every time loop runs
 
@@ -226,4 +237,4 @@ void loop() {
 
   }
 
-} 
+}
