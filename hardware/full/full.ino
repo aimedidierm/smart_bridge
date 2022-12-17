@@ -3,7 +3,6 @@
 #if defined(ESP8266)|| defined(ESP32) || defined(AVR)
 #include <EEPROM.h>
 #endif
-
 //pins:
 const int HX711_dout = 10; //mcu > HX711 dout pin
 const int HX711_sck = 11; //mcu > HX711 sck pin
@@ -14,12 +13,8 @@ const int calVal_eepromAdress = 0;
 unsigned long t = 0;
 Servo myservo1;
 Servo myservo2;
-int lcdColumns = 16;
-int lcdRows = 2;
-const int green1 = 2;
-const int red1 = 3;
-const int green2 = 4;
-const int red2 = 5;
+const int green = 2;
+const int red = 3;
 const int buzzer = 7;
 int pos = 0;
 int weight1=100;
@@ -27,18 +22,13 @@ int weight2=100;
 int y=0;
 void setup() {
   myservo1.attach(6);
-  myservo2.attach(9);
-  pinMode(green1, OUTPUT);
-  pinMode(red1, OUTPUT);
-  pinMode(green2, OUTPUT);
-  pinMode(red2, OUTPUT);
+  pinMode(green, OUTPUT);
+  pinMode(red, OUTPUT);
   pinMode(buzzer, OUTPUT);
-  //digitalWrite(green1, HIGH);
-  //digitalWrite(green2, HIGH);
+  digitalWrite(green, HIGH);
   digitalWrite(buzzer, LOW);
   delay(3000);
   myservo1.write(0);
-  myservo2.write(0);
   Serial.begin(57600); delay(10);
   Serial.println();
   Serial.println("Starting...");
@@ -106,8 +96,8 @@ void loop() {
     }
   }
 void intakeo(){
-  digitalWrite(red1, HIGH);
-  digitalWrite(green1, LOW);
+  digitalWrite(red, HIGH);
+  digitalWrite(green, LOW);
   digitalWrite(buzzer, HIGH);
   delay(1000);
   for (pos = 0; pos <= 100; pos += 1) {
@@ -116,8 +106,8 @@ void intakeo(){
   }
 }
 void intakec(){
-  digitalWrite(red1, LOW);
-  digitalWrite(green1, HIGH);
+  digitalWrite(red, LOW);
+  digitalWrite(green, HIGH);
   digitalWrite(buzzer, LOW);
   delay(1000);
   for (pos = 100; pos >= 0; pos -= 1) {
@@ -125,13 +115,3 @@ void intakec(){
     delay(15);
   }
 }
-void outertakeo(){
-  digitalWrite(red2, HIGH);
-  digitalWrite(green2, LOW);
-  digitalWrite(buzzer, HIGH);
-  delay(1000);
-  for (pos = 100; pos >= 0; pos -= 1) {
-    myservo2.write(pos);
-    delay(15);
-  }
-  }

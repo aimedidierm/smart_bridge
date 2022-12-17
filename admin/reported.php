@@ -50,13 +50,12 @@ require 'php-includes/check-login.php';
                                     <thead>
                                         <tr>
                                             <th>Time</th>
-                                            <th>Right side</th>
-                                            <th>Left side</th>
+                                            <th>Number</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <?php
-                                        $sql = "SELECT * FROM history";
+                                        $sql = "SELECT * FROM reported";
                                         $stmt = $db->prepare($sql);
                                         $stmt->execute();
                                         if ($stmt->rowCount() > 0) {
@@ -65,21 +64,10 @@ require 'php-includes/check-login.php';
                                             ?>
                                         <tr>
                                             <td><?php print $row['time']?></td>
-                                            <td><?php print $row['rightside']?></td>
                                             <td><?php print $row['leftside']?></td>
                                         </tr>
                                         <?php
                                         $count++;
-                                        }
-                                    }
-                                    if(isset($_POST['delete'])){
-                                        $sql ="DELETE FROM student WHERE id = ?";
-                                        $stm = $db->prepare($sql);
-                                        if ($stm->execute(array($sid))) {
-                                            print "<script>alert('Student deleted');window.location.assign('students.php')</script>";
-                                
-                                        } else {
-                                            print "<script>alert('Delete fail');window.location.assign('students.php')</script>";
                                         }
                                     }
                                     ?>

@@ -34,9 +34,6 @@
             <div class="sidebar-collapse">
                 <ul class="nav" id="main-menu">
                     <li>
-                        <a href="history.php"><i class="fa fa-dashboard"></i> History</a>
-                    </li>
-                    <li>
                         <a href="reported.php"><i class="fa fa-table"></i> Reported</a>
                     </li>
                     <li>

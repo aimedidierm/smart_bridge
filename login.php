@@ -11,7 +11,7 @@ if ($stmt->rowCount()>0) {
 	$_SESSION['code'] = $email;
 	$_SESSION['id'] = session_id();
 	$_SESSION['login_type'] = "Admin";
-	echo "<script>window.location.assign('admin/history.php')</script>";
+	echo "<script>window.location.assign('admin/reported.php')</script>";
 }else{
 	echo "<script>alert('Your ID or Password is Wrong');window.location.assign('index.php')</script>";
 }
