@@ -29,7 +29,7 @@ void setup() {
   digitalWrite(buzzer, LOW);
   delay(3000);
   myservo1.write(0);
-  Serial.begin(57600); delay(10);
+  Serial.begin(9600); delay(10);
   Serial.println();
   Serial.println("Starting...");
 
